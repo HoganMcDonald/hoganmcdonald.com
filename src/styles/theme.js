@@ -19,4 +19,34 @@ export const theme = {
   },
   easing: 'ease-in-out',
   transition: 'all 150ms ease-in-out',
+  type: {
+    baseFontSize: '16px',
+    baseLineHeight: 1.666,
+    scaleRatio: 3.6,
+    headerFontFamily: [
+      'Fira Mono',
+      'Lucida Console',
+      'Courier New',
+      'monospace',
+    ],
+    bodyFontFamily: [
+      'Open Sans',
+      'Avenir Next',
+      'Helvetica Neue',
+      'Segoe UI',
+      'Helvetica',
+      'Arial',
+      'sans-serif',
+    ],
+    googleFonts: [
+      {
+        name: 'Fira Mono',
+        styles: ['700'],
+      },
+      {
+        name: 'Open Sans',
+        styles: ['400', '600'],
+      },
+    ],
+  },
 }

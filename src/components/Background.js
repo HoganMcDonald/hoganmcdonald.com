@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
+import Typography from 'typography'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 
 import { theme } from '../styles/theme'
-import typography from '../styles/typography'
 import favicon from '../images/favicon.png'
 
 const Main = styled.main`
@@ -15,9 +15,41 @@ const Main = styled.main`
 `
 
 class Background extends Component {
+  state = {
+    type: { ...theme.type },
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateType)
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('resize', this.updateType)
+  }
+
+  updateType = () => {
+    if (window.matchMedia('(max-width: 1000px)').matches) {
+      this.setState({
+        type: {
+          ...this.state.type,
+          scaleRatio: 2.6,
+        },
+      })
+    } else {
+      this.setState({
+        type: {
+          ...this.state.type,
+          scaleRatio: theme.type.scaleRatio,
+        },
+      })
+    }
+  }
+
   render() {
     const { children } = this.props
+    const { type } = this.state
 
+    const typography = new Typography(type)
     return (
       <>
         <Helmet

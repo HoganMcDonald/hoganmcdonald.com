@@ -1,9 +1,8 @@
 import React from 'react'
 
-import './index.css'
-
-import Banner from '../components/Banner'
 import Background from '../components/Background'
+import { Banner } from '../sections/Banner'
+import './index.css'
 
 const IndexPage = () => (
   <Background>
